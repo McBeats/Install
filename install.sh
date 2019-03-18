@@ -35,7 +35,7 @@ git clone -b v8.6 --single-branch https://github.com/PGBlitz/Install.git /opt/pg
 
 mkdir -p /opt/var/logs
 echo "" > /opt/var/server.ports
-echo "51" > /opt/var/pg.pythonstart
+echo "53" > /opt/var/pg.pythonstart
 touch /opt/var/pg.pythonstart.stored
 start=$(cat /opt/var/pg.pythonstart)
 stored=$(cat /opt/var/pg.pythonstart.stored)
@@ -43,7 +43,7 @@ stored=$(cat /opt/var/pg.pythonstart.stored)
 if [ "$start" != "$stored" ]; then
 bash /opt/pgstage/pyansible.sh
 fi
-echo "51" > /opt/var/pg.pythonstart.stored
+echo "53" > /opt/var/pg.pythonstart.stored
 
 ansible-playbook /opt/pgstage/clone.yml
 cp /opt/pgblitz/menu/alias/templates/pgblitz /bin/pgblitz
