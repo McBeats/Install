@@ -13,6 +13,6 @@
     - name: Cloning PG Blitz - From Installer
       git:
         repo: "https://github.com/PGBlitz/PGBlitz.com"
-        dest: /opt/plexguide
+        dest: /opt/pgblitz
         version: "v8.6base"
         force: yes

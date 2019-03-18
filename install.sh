@@ -23,8 +23,8 @@ EOF
 sleep 3
 
 # Delete If it Exist for Cloning
-file="/opt/plexguide"
-if [ -e "$file" ]; then rm -rf /opt/plexguide; fi
+file="/opt/pgblitz"
+if [ -e "$file" ]; then rm -rf /opt/pgblitz; fi
 
 file="/opt/pgstage"
 if [ -e "$file" ]; then rm -rf /opt/pgstage; fi
@@ -33,31 +33,31 @@ rm -rf /opt/pgstage/place.holder 1>/dev/null 2>&1
 
 git clone -b v8.6 --single-branch https://github.com/PGBlitz/Install.git /opt/pgstage
 
-mkdir -p /var/plexguide/logs
-echo "" > /var/plexguide/server.ports
-echo "51" > /var/plexguide/pg.pythonstart
-touch /var/plexguide/pg.pythonstart.stored
-start=$(cat /var/plexguide/pg.pythonstart)
-stored=$(cat /var/plexguide/pg.pythonstart.stored)
+mkdir -p /var/pgblitz/logs
+echo "" > /var/pgblitz/server.ports
+echo "51" > /var/pgblitz/pg.pythonstart
+touch /var/pgblitz/pg.pythonstart.stored
+start=$(cat /var/pgblitz/pg.pythonstart)
+stored=$(cat /var/pgblitz/pg.pythonstart.stored)
 
 if [ "$start" != "$stored" ]; then
 bash /opt/pgstage/pyansible.sh
 fi
-echo "51" > /var/plexguide/pg.pythonstart.stored
+echo "51" > /var/pgblitz/pg.pythonstart.stored
 
 ansible-playbook /opt/pgstage/clone.yml
-cp /opt/plexguide/menu/alias/templates/plexguide /bin/plexguide
-cp /opt/plexguide/menu/alias/templates/pgblitz /bin/pgblitz
+cp /opt/pgblitz/menu/alias/templates/pgblitz /bin/pgblitz
+cp /opt/pgblitz/menu/alias/templates/pgblitz /bin/pgblitz
 
 tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⌛  Verifiying PGBlitz / PGBlitz Installed @ /bin/plexguide - Standby!
+⌛  Verifiying PGBlitz / PGBlitz Installed @ /bin/pgblitz - Standby!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 sleep 2
 
-file="/bin/plexguide"
+file="/bin/pgblitz"
 if [ ! -e "$file" ]; then
 tee <<-EOF
 
@@ -77,21 +77,21 @@ tee <<-EOF
 ✅️  PASSED! The PGBlitz / PGBlitz Command Installed!
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
-rm -rf /var/plexguide/new.install 1>/dev/null 2>&1
+rm -rf /var/pgblitz/new.install 1>/dev/null 2>&1
 sleep 2
-chmod 755 /bin/plexguide
-chown 1000:1000 /bin/plexguide
+chmod 755 /bin/pgblitz
+chown 1000:1000 /bin/pgblitz
 chmod 755 /bin/pgblitz
 chown 1000:1000 /bin/pgblitz
 
 ## Other Folders
-mkdir -p /opt/appdata/plexguide
-mkdir -p /var/plexguide
+mkdir -p /opt/appdata/pgblitz
+mkdir -p /var/pgblitz
 
 tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-↘️  Start AnyTime By Typing >>> pgblitz [or] plexguide
+↘️  Start AnyTime By Typing >>> pgblitz [or] pgblitz
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 EOF

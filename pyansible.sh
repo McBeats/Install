@@ -44,4 +44,4 @@
   echo "nocows = 1" >> /etc/ansible/ansible.cfg
 
   # Variables Need to Line Up with pg.sh (start)
-  touch /var/plexguide/background.1
+  touch /var/pgblitz/background.1
