@@ -47,8 +47,8 @@ echo "51" > /var/pgblitz/pg.pythonstart.stored
 
 ansible-playbook /opt/pgstage/clone.yml
 cp /opt/pgblitz/menu/alias/templates/pgblitz /bin/pgblitz
-cp /opt/pgblitz/menu/alias/templates/pgblitz /bin/pgblitz
-
+cp /opt/pgblitz/menu/alias/templates/pg /bin/pg
+cp /opt/pgblitz/menu/alias/templates/plexguide /bin/plexguide
 tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
