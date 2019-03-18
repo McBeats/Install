@@ -91,7 +91,7 @@ mkdir -p /var/pgblitz
 tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-↘️  Start AnyTime By Typing >>> pgblitz [or] pgblitz
+↘️  Start AnyTime By Typing >>> pgblitz [or] pg
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 EOF
