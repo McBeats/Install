@@ -14,7 +14,7 @@ logfile=/var/log/log.info
 package_list="curl wget software-properties-common git zip unzip dialog sudo nano htop mc lshw"
 
 ##fast change the editions
-edition=v8.6
+edition=v8.5
 ##fast change the editions
 
 tee <<-EOF
@@ -214,8 +214,8 @@ if [ $space -le "81920" ] ; then
 fi
 sleep 2
 # Delete If it Exist for Cloning
-file="/opt/pgblitz"
-if [ -e "$file" ]; then rm -rf /opt/pgblitz; fi
+file="/opt/plexguide"
+if [ -e "$file" ]; then rm -rf /opt/plexguide; fi
 
 file="/opt/pgstage"
 if [ -e "$file" ]; then rm -rf /opt/pgstage; fi
@@ -224,26 +224,26 @@ rm -rf /opt/pgstage/place.holder 2>&1 >> /dev/null
 
 git clone -b $edition --single-branch https://github.com/PGBlitz/Install.git /opt/pgstage 1>/dev/null 2>&1
 
-mkdir -p /opt/var/logs
-echo "" > /opt/var/server.ports
-echo "53" > /opt/var/pg.pythonstart
-touch /opt/var/pg.pythonstart.stored
-start=$(cat /opt/var/pg.pythonstart)
-stored=$(cat /opt/var/pg.pythonstart.stored)
+mkdir -p /var/plexguide/logs
+echo "" > /var/plexguide/server.ports
+echo "51" > /var/plexguide/pg.pythonstart
+touch /var/plexguide/pg.pythonstart.stored
+start=$(cat /var/plexguide/pg.pythonstart)
+stored=$(cat /var/plexguide/pg.pythonstart.stored)
 
 if [ "$start" != "$stored" ]; then
-bash /opt/pgstage/pyansible.sh 2>&1 >> /dev/null
+bash /opt/pgstage/pyansible.sh  2>&1 >> /dev/null
 fi
-echo "53" > /opt/var/pg.pythonstart.stored
+echo "51" > /var/plexguide/pg.pythonstart.stored
 
 #pip upgrade
 pip install --upgrade pip 2>&1 >> /dev/null
 echo "PIP updated"
 
-ansible-playbook /opt/pgstage/clone.yml 2>&1 >> /dev/null
-cp /opt/pgblitz/menu/alias/templates/pgblitz /bin/pgblitz 2>&1 >> /dev/null
-cp /opt/pgblitz/menu/alias/templates/pg /bin/pg 2>&1 >> /dev/null
-cp /opt/pgblitz/menu/alias/templates/plexguide /bin/plexguide 2>&1 >> /dev/null
+ansible-playbook /opt/pgstage/clone.yml  2>&1 >> /dev/null
+cp /opt/plexguide/menu/alias/templates/plexguide /bin/plexguide  2>&1 >> /dev/null
+cp /opt/plexguide/menu/alias/templates/pgblitz /bin/pgblitz  2>&1 >> /dev/null
+cp /opt/plexguide/menu/alias/templates/plexguide /bin/pg 2>&1 >> /dev/null
 
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -252,7 +252,7 @@ tee <<-EOF
 EOF
 sleep 2
 
-file="/bin/pgblitz"
+file="/bin/plexguide"
 if [ ! -e "$file" ]; then
 tee <<-EOF
 
@@ -279,16 +279,18 @@ tee <<-EOF
 ✅ PASSED ! Logfile              : $logfile
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
-rm -rf /opt/var/new.install 1>/dev/null 2>&1
+rm -rf /var/plexguide/new.install 1>/dev/null 2>&1
 sleep 2
+chmod 775 /bin/plexguide
+chown 1000:1000 /bin/plexguide
 chmod 775 /bin/pgblitz
 chown 1000:1000 /bin/pgblitz
-chmod 775 /bin/pgblitz
-chown 1000:1000 /bin/pgblitz
+chmod 775 /bin/pg
+chown 1000:1000 /bin/pg
 
 ## Other Folders
-mkdir -p /opt/appdata/pgblitz
-mkdir -p /opt/var
+mkdir -p /opt/appdata/plexguide
+mkdir -p /var/plexguide
 
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
