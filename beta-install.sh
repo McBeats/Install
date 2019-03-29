@@ -240,14 +240,10 @@ echo "53" > /opt/var/pg.pythonstart.stored
 pip install --upgrade pip 2>&1 >> /dev/null
 echo "PIP updated"
 
-ansible-playbook /opt/pgstage/clone.yml2>&1 >> /dev/null
+ansible-playbook /opt/pgstage/clone.yml 2>&1 >> /dev/null
 cp /opt/pgblitz/menu/alias/templates/pgblitz /bin/pgblitz 2>&1 >> /dev/null
 cp /opt/pgblitz/menu/alias/templates/pg /bin/pg 2>&1 >> /dev/null
 cp /opt/pgblitz/menu/alias/templates/plexguide /bin/plexguide 2>&1 >> /dev/null
-tee <<-EOF
-
-
-2>&1 >> /dev/null
 
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
