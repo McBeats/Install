@@ -7,7 +7,7 @@
 ################################################################################
 
 ## Vars
-ansible="2.8.0b1"
+ansible="2.7.8"
 pip="19.0.2"
 
 ## Install Set
@@ -36,7 +36,7 @@ python -m pip install --disable-pip-version-check --upgrade --force-reinstall \
     requests \
     netaddr \
     lxml
-python3 -m pip install --disable-pip-version-check --upgrade --force-reinstall ansible==${1-$ansible}
+python -m pip install --disable-pip-version-check --upgrade --force-reinstall ansible==${1-$ansible}
 
 ## Copy pip to /usr/bin
 cp /usr/local/bin/pip /usr/bin/pip
