@@ -83,7 +83,7 @@ osname=$(lsb_release -si)
 relno=$(lsb_release -sr)
 hostname=$(hostname -I | awk '{print $1}')
 # add repo
-osname=$([ "$osname" = "Ubuntu" ] && [ $relno -ge 15 ] && [ $relno -le 18.09 ) || ([ "$osname" = "Debian" ] && [ $relno -ge 8 ])
+osname=$([ "$osname" = "Ubuntu" ] && [ $relno -ge 15 ] && [ $relno -le "18.09" ) || ([ "$osname" = "Debian" ] && [ $relno -ge 8 ])
 if echo $osname "Debian" ; then
 	add-apt-repository main 2>&1 >> /dev/null
 	add-apt-repository non-free 2>&1 >> /dev/null
@@ -95,11 +95,10 @@ elif echo $osname "Ubuntu" ; then
 	add-apt-repository multiverse 2>&1 >> /dev/null
 elif echo $osname "Rasbian" "Fedora" "CentOS"; then
 	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-	echo " ⛔ Warning!"
-	echo " ⛔ Warning Only Ubuntu release 16/18.04 LTS/SERVER and Debian 9 above are supported"
-	echo " ⛔ Warning Your system does not appear to be supported"
-	echo " ⛔ Warning Check https://pgblitz.com/threads/pg-install-instructions.243/"
-	echo " ⛔ Warning!"
+	echo " ⛔ Warning ~ Your System Is Not Supported"
+  echo ""
+	echo " - Only Ubuntu release 16/18.04 LTS/SERVER and Debian 9 above are supported"
+	echo " - Warning Check https://pgblitz.com/threads/pg-install-instructions.243/"
 	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
        	exit 1
 fi
