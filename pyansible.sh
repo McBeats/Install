@@ -36,7 +36,7 @@ python -m pip install --disable-pip-version-check --upgrade --force-reinstall \
     requests \
     netaddr \
     lxml
-python -m pip install --disable-pip-version-check --upgrade --force-reinstall ansible==${1-$ansible}
+python3 -m pip install --disable-pip-version-check --upgrade --force-reinstall ansible==${1-$ansible}
 
 ## Copy pip to /usr/bin
 cp /usr/local/bin/pip /usr/bin/pip
