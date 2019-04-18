@@ -41,7 +41,7 @@ apt-get install lsof -yqq 2>&1 >> /dev/null
 	export DEBIAN_FRONTEND=noninteractive
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⌛  Check for existing Webserver is running - Standby
+⌛ Checking to See if an Exisitng WebServer is Running - Standby
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 if lsof -Pi :80 -sTCP:LISTEN -t >/dev/null ; then
@@ -110,26 +110,25 @@ tee <<-EOF
 EOF
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-⌛  Update the System - Standby
+⌛  Updating Your System - Standby (Will Take Awhile)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
 apt-get update -yqq 2>&1 >> /dev/null
-	export DEBIAN_FRONTEND=noninteractive
+	#export DEBIAN_FRONTEND=noninteractive
 apt-get upgrade -yqq 2>&1 >> /dev/null
-	export DEBIAN_FRONTEND=noninteractive
-apt-get dist-upgrade -yqq 2>&1 >> /dev/null
-	export DEBIAN_FRONTEND=noninteractive
+	#export DEBIAN_FRONTEND=noninteractive
+#apt-get dist-upgrade -yqq 2>&1 >> /dev/null
+	#export DEBIAN_FRONTEND=noninteractive
 apt-get autoremove -yqq 2>&1 >> /dev/null
-	export DEBIAN_FRONTEND=noninteractive
+	#export DEBIAN_FRONTEND=noninteractive
 apt-get install $package_list -yqq 2>&1 >> /dev/null
-	export DEBIAN_FRONTEND=noninteractive
+	#export DEBIAN_FRONTEND=noninteractive
 tee <<-EOF
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ PASSED Update the System - finish
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 EOF
-sleep 5
-
+sleep 3
 
 ##usercheck
 if [ $(grep "1000" /etc/passwd | cut -d: -f1 | awk '{print $1}') ]; then
