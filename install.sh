@@ -91,7 +91,7 @@ mkdir -p /opt/var
 tee <<-EOF
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-↘️  Start AnyTime By Typing >>> pgblitz [or] pg
+↘️  Start AnyTime By Typing >>> pgblitz [or] pg [or] plexguide
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 EOF
